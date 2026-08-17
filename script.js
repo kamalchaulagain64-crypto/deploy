@@ -17,11 +17,146 @@ let studentsArray =
 ========================================= */
 
 function saveStudents() {
-
     localStorage.setItem(
         "students",
         JSON.stringify(studentsArray)
     );
+}
+
+
+/* =========================================
+   UPDATE HOME PAGE STATISTICS
+========================================= */
+
+function updateStatistics() {
+
+    const totalStudents =
+        document.getElementById("totalStudents");
+
+    const totalFaculties =
+        document.getElementById("totalFaculties");
+
+    const totalSemesters =
+        document.getElementById("totalSemesters");
+
+
+    // Total students
+    if (totalStudents) {
+        totalStudents.textContent =
+            studentsArray.length;
+    }
+
+
+    // Unique faculties
+    if (totalFaculties) {
+
+        const faculties = new Set();
+
+        studentsArray.forEach(function (student) {
+
+            if (student.faculty) {
+                faculties.add(student.faculty);
+            }
+
+        });
+
+        totalFaculties.textContent =
+            faculties.size;
+    }
+
+
+    // Unique semesters
+    if (totalSemesters) {
+
+        const semesters = new Set();
+
+        studentsArray.forEach(function (student) {
+
+            if (student.semester) {
+                semesters.add(student.semester);
+            }
+
+        });
+
+        totalSemesters.textContent =
+            semesters.size;
+    }
+}
+
+
+/* =========================================
+   DISPLAY RECENT STUDENTS ON HOME PAGE
+========================================= */
+
+function displayStudentPreview() {
+
+    const preview =
+        document.getElementById("studentPreview");
+
+    const emptyMessage =
+        document.getElementById("emptyStudents");
+
+
+    // Not on home page
+    if (!preview) {
+        return;
+    }
+
+
+    preview.innerHTML = "";
+
+
+    // No students
+    if (studentsArray.length === 0) {
+
+        if (emptyMessage) {
+            emptyMessage.style.display = "block";
+        }
+
+        return;
+    }
+
+
+    if (emptyMessage) {
+        emptyMessage.style.display = "none";
+    }
+
+
+    // Show latest 3 students
+    const recentStudents =
+        studentsArray.slice(-3).reverse();
+
+
+    recentStudents.forEach(function (student) {
+
+        preview.innerHTML += `
+
+            <div class="student-preview-item">
+
+                <div class="preview-avatar">
+                    ${
+                        student.name
+                            ? student.name.charAt(0).toUpperCase()
+                            : "S"
+                    }
+                </div>
+
+                <div class="preview-info">
+
+                    <strong>
+                        ${student.name || "Unknown Student"}
+                    </strong>
+
+                    <span>
+                        ${student.faculty || "No faculty"}
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+    });
 }
 
 
@@ -34,12 +169,14 @@ function displaystudent() {
     const tableBody =
         document.getElementById("studentTableBody");
 
-    // If not on manage.html
+
     if (!tableBody) {
         return;
     }
 
+
     tableBody.innerHTML = "";
+
 
     if (studentsArray.length === 0) {
 
@@ -106,7 +243,9 @@ function displaystudent() {
 
 function deletestudent(index) {
 
-    const student = studentsArray[index];
+    const student =
+        studentsArray[index];
+
 
     if (!student) {
         alert("Student not found.");
@@ -114,9 +253,10 @@ function deletestudent(index) {
     }
 
 
-    const confirmDelete = confirm(
-        `Are you sure you want to delete ${student.name}?`
-    );
+    const confirmDelete =
+        confirm(
+            `Are you sure you want to delete ${student.name}?`
+        );
 
 
     if (!confirmDelete) {
@@ -129,6 +269,10 @@ function deletestudent(index) {
     saveStudents();
 
     displaystudent();
+
+    updateStatistics();
+
+    displayStudentPreview();
 }
 
 
@@ -150,7 +294,8 @@ function editstudent(index) {
     );
 
 
-    window.location.href = "addstudent.html";
+    window.location.href =
+        "addstudent.html";
 }
 
 
@@ -160,14 +305,8 @@ function editstudent(index) {
 
 function viewstudent() {
 
-    /*
-        We do NOT save selectedstudent.
-
-        Detail.html displays ALL students
-        from the studentsArray/localStorage.
-    */
-
-    window.location.href = "Detail.html";
+    window.location.href =
+        "viewdetail.html";
 }
 
 
@@ -199,7 +338,6 @@ function getName(event) {
         document.getElementById("semester");
 
 
-    // Check form elements
     if (
         !nameElement ||
         !emailElement ||
@@ -212,42 +350,19 @@ function getName(event) {
     }
 
 
-    const name =
-        nameElement.value.trim();
-
-    const email =
-        emailElement.value.trim();
-
-    const contact =
-        contactElement.value.trim();
-
-    const address =
-        addressElement.value.trim();
-
-    const faculty =
-        facultyElement.value;
-
-    const semester =
-        semesterElement.value;
-
-
-    /* =========================================
-       CREATE STUDENT OBJECT
-    ========================================= */
-
     const student = {
 
-        name: name,
+        name: nameElement.value.trim(),
 
-        email: email,
+        email: emailElement.value.trim(),
 
-        contact: contact,
+        contact: contactElement.value.trim(),
 
-        address: address,
+        address: addressElement.value.trim(),
 
-        faculty: faculty,
+        faculty: facultyElement.value,
 
-        semester: semester
+        semester: semesterElement.value
 
     };
 
@@ -276,18 +391,16 @@ function getName(event) {
 
             studentsArray[index] =
                 student;
-
         }
 
 
-        // Remove edit mode
-        localStorage.removeItem("editIndex");
+        localStorage.removeItem(
+            "editIndex"
+        );
 
     } else {
 
-        // Add new student
         studentsArray.push(student);
-
     }
 
 
@@ -296,19 +409,6 @@ function getName(event) {
     ========================================= */
 
     saveStudents();
-
-
-    /* =========================================
-       RESET FORM
-    ========================================= */
-
-    const form =
-        document.getElementById("studentForm");
-
-
-    if (form) {
-        form.reset();
-    }
 
 
     /* =========================================
@@ -334,7 +434,6 @@ function prepareEditForm() {
         document.getElementById("name");
 
 
-    // Not on addstudent.html
     if (
         storedEditIndex === null ||
         !nameInput
@@ -353,15 +452,13 @@ function prepareEditForm() {
 
     if (!student) {
 
-        localStorage.removeItem("editIndex");
+        localStorage.removeItem(
+            "editIndex"
+        );
 
         return;
     }
 
-
-    /* =========================================
-       FILL FORM
-    ========================================= */
 
     document.getElementById("name").value =
         student.name || "";
@@ -382,27 +479,22 @@ function prepareEditForm() {
         student.semester || "";
 
 
-    /* =========================================
-       CHANGE HEADING
-    ========================================= */
-
     const heading =
-        document.querySelector(".form-header h1");
+        document.querySelector(
+            ".form-header h1"
+        );
 
 
     if (heading) {
-
         heading.textContent =
             "Edit Student";
     }
 
 
-    /* =========================================
-       CHANGE DESCRIPTION
-    ========================================= */
-
     const description =
-        document.querySelector(".form-header p");
+        document.querySelector(
+            ".form-header p"
+        );
 
 
     if (description) {
@@ -411,10 +503,6 @@ function prepareEditForm() {
             "Update the student's information below";
     }
 
-
-    /* =========================================
-       CHANGE SUBMIT BUTTON
-    ========================================= */
 
     const submitButton =
         document.querySelector(
@@ -432,7 +520,6 @@ function prepareEditForm() {
 
 /* =========================================
    DISPLAY ALL STUDENTS
-   Detail.html
 ========================================= */
 
 function displayAllStudents() {
@@ -441,7 +528,6 @@ function displayAllStudents() {
         document.getElementById("studentGrid");
 
 
-    // Not on Detail.html
     if (!studentGrid) {
         return;
     }
@@ -449,10 +535,6 @@ function displayAllStudents() {
 
     studentGrid.innerHTML = "";
 
-
-    /* =========================================
-       NO STUDENTS
-    ========================================= */
 
     if (studentsArray.length === 0) {
 
@@ -481,10 +563,6 @@ function displayAllStudents() {
     }
 
 
-    /* =========================================
-       DISPLAY EVERY STUDENT
-    ========================================= */
-
     studentsArray.forEach(function (student, index) {
 
         const firstLetter =
@@ -497,15 +575,11 @@ function displayAllStudents() {
 
             <article class="student-card">
 
-
-                <!-- Card Header -->
-
                 <div class="student-card-header">
 
                     <div class="card-avatar">
                         ${firstLetter}
                     </div>
-
 
                     <div>
 
@@ -522,12 +596,7 @@ function displayAllStudents() {
                 </div>
 
 
-                <!-- Student Information -->
-
                 <div class="student-details">
-
-
-                    <!-- Email -->
 
                     <div class="detail-item">
 
@@ -548,8 +617,6 @@ function displayAllStudents() {
                     </div>
 
 
-                    <!-- Contact -->
-
                     <div class="detail-item">
 
                         <span>📱</span>
@@ -568,8 +635,6 @@ function displayAllStudents() {
 
                     </div>
 
-
-                    <!-- Address -->
 
                     <div class="detail-item">
 
@@ -590,8 +655,6 @@ function displayAllStudents() {
                     </div>
 
 
-                    <!-- Faculty -->
-
                     <div class="detail-item">
 
                         <span>🎓</span>
@@ -611,8 +674,6 @@ function displayAllStudents() {
                     </div>
 
 
-                    <!-- Semester -->
-
                     <div class="detail-item">
 
                         <span>📚</span>
@@ -631,7 +692,6 @@ function displayAllStudents() {
 
                     </div>
 
-
                 </div>
 
             </article>
@@ -649,15 +709,21 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        // Manage.html
+        // Home page
+        updateStatistics();
+
+        displayStudentPreview();
+
+
+        // Manage page
         displaystudent();
 
 
-        // Addstudent.html
+        // Add student page
         prepareEditForm();
 
 
-        // Detail.html
+        // Detail page
         displayAllStudents();
 
     }
