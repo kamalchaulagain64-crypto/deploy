@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Students | Student Management System</title>
+
+    <link rel="stylesheet" href="../styles/manage.css">
+</head>
+
+<body>
+
+    <main class="manage-container">
+
+        <header class="manage-header">
+            <div>
+                <h1>Manage Students</h1>
+                <p>View and manage all registered students.</p>
+            </div>
+
+            <a href="addstudent.html" class="add-student-btn">
+                + Add Student
+            </a>
+        </header>
+
+        <section class="table-card">
+
+            <div class="table-wrapper">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Address</th>
+                            <th>Faculty</th>
+                            <th>Semester</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody">
+                        <!-- Students will be inserted by JavaScript -->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+ <script src="../scripts/script.js"></script>
+</body>
+</html>

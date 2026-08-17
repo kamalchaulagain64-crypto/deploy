@@ -1,0 +1,526 @@
+/* =========================================
+   STUDENT DETAILS PAGE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #7c3aed;
+
+    --dark: #172033;
+    --muted: #64748b;
+
+    --background: #f5f7fb;
+    --white: #ffffff;
+
+    --border: #e5e7eb;
+
+    --shadow:
+        0 10px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--dark);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(79, 70, 229, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(124, 58, 237, 0.10),
+            transparent 30%
+        ),
+        var(--background);
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.detail-container {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 40px 25px;
+}
+
+.detail-wrapper {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.detail-header {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    color: white;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    box-shadow:
+        0 15px 35px rgba(79, 70, 229, 0.20);
+}
+
+.student-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-size: 34px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.detail-header h1 {
+    margin-bottom: 6px;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.detail-header p {
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   STUDENT GRID
+========================================= */
+
+.student-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   STUDENT CARD
+========================================= */
+
+.student-card {
+    padding: 24px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #c7d2fe;
+
+    box-shadow:
+        0 18px 40px rgba(79, 70, 229, 0.13);
+}
+
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.student-card-header {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 20px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.card-avatar {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: white;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+}
+
+.student-card-header h2 {
+    margin-bottom: 4px;
+
+    font-size: 19px;
+}
+
+.student-card-header span {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   STUDENT INFORMATION
+========================================= */
+
+.student-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.detail-item > span {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-size: 15px;
+
+    border-radius: 9px;
+
+    background: #eef2ff;
+}
+
+.detail-item div {
+    min-width: 0;
+}
+
+.detail-item small {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+.detail-item strong {
+    display: block;
+
+    color: var(--dark);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+
+/* =========================================
+   NO STUDENTS MESSAGE
+========================================= */
+
+.no-students {
+    grid-column: 1 / -1;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+}
+
+.no-students-icon {
+    margin-bottom: 15px;
+
+    font-size: 50px;
+}
+
+.no-students h2 {
+    margin-bottom: 8px;
+
+    font-size: 22px;
+}
+
+.no-students p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.detail-actions {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.detail-actions a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.detail-actions a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-btn {
+    color: var(--primary);
+
+    background: #eef2ff;
+
+    border: 1px solid #c7d2fe;
+}
+
+.back-btn:hover {
+    background: #e0e7ff;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.12);
+}
+
+
+/* =========================================
+   HOME BUTTON
+========================================= */
+
+.home-btn {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+.home-btn:hover {
+    box-shadow:
+        0 12px 28px rgba(79, 70, 229, 0.35);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+    .student-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .detail-container {
+        padding: 20px 15px;
+    }
+
+    .detail-header {
+        padding: 22px;
+
+        gap: 14px;
+    }
+
+    .student-icon {
+        width: 55px;
+        height: 55px;
+
+        font-size: 27px;
+    }
+
+    .detail-header h1 {
+        font-size: 22px;
+    }
+
+    .detail-header p {
+        font-size: 12px;
+    }
+
+    .student-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .student-card {
+        padding: 20px;
+    }
+
+    .detail-actions {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .detail-actions a {
+        width: 100%;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .detail-header {
+        align-items: flex-start;
+    }
+
+    .student-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 23px;
+    }
+
+    .detail-header h1 {
+        font-size: 20px;
+    }
+
+    .student-card-header h2 {
+        font-size: 17px;
+    }
+}

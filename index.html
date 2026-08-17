@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Student Management System - Add, manage and view student information.">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="../styles/index.css">
+</head>
+
+
+<body>
+
+    <!-- ================================
+         NAVIGATION
+    ================================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎓
+            <span>StudentMS</span>
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="addstudent.html">
+                Add Student
+            </a>
+
+            <a href="manage.html">
+                Manage Students
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main>
+
+
+        <!-- ================================
+             HERO
+        ================================= -->
+
+        <section class="hero">
+
+
+            <!-- Hero Content -->
+
+            <div class="hero-content">
+
+                <span class="badge">
+                    🎓 Student Management System
+                </span>
+
+
+                <h1>
+                    Manage Students
+                    <span>Smarter & Easier</span>
+                </h1>
+
+
+                <p>
+                    A simple and modern student management system
+                    to add, organize, view, edit, and manage
+                    student information in one place.
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="addstudent.html" class="btn btn-primary">
+                        + Add Student
+                    </a>
+
+
+                    <a href="manage.html" class="btn btn-secondary">
+                        View Students →
+                    </a>
+
+                </div>
+
+
+                <!-- Statistics -->
+
+                <div class="statistics">
+
+                    <div class="stat">
+
+                        <strong id="totalStudents">
+                            0
+                        </strong>
+
+                        <span>
+                            Total Students
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong id="totalFaculties">
+                            0
+                        </strong>
+
+                        <span>
+                            Faculties
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong id="totalSemesters">
+                            0
+                        </strong>
+
+                        <span>
+                            Semesters
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 STUDENT PREVIEW
+            ================================= -->
+
+            <div class="hero-card">
+
+
+                <div class="card-top">
+
+                    <span class="card-icon">
+                        👨‍🎓
+                    </span>
+
+
+                    <div>
+
+                        <h3>
+                            Student Records
+                        </h3>
+
+                        <p>
+                            Recently added students
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Students inserted by JavaScript -->
+
+                <div id="studentPreview" class="student-list">
+
+                    <!-- JavaScript will add students here -->
+
+                </div>
+
+
+                <!-- Empty message -->
+
+                <div id="emptyStudents" class="empty-students" style="display: none;">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <p>
+                        No students added yet.
+                    </p>
+
+                    <a href="addstudent.html">
+                        Add your first student
+                    </a>
+
+                </div>
+
+
+                <!-- View all -->
+
+                <a href="viewdetail.html" class="view-all">
+                    View all students →
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             FEATURES
+        ================================= -->
+
+        <!-- ================================
+     FEATURES
+================================= -->
+
+        <section class="features">
+
+            <div class="section-heading">
+
+                <span>
+                    FEATURES
+                </span>
+
+                <h2>
+                    Everything you need
+                </h2>
+
+                <p>
+                    Keep your student information organized
+                    and easy to access.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+
+                <!-- Add Student -->
+
+                <a href="addstudent.html" class="feature-card">
+
+                    <div class="feature-icon green">
+                        ➕
+                    </div>
+
+                    <h3>
+                        Add Students
+                    </h3>
+
+                    <p>
+                        Quickly add new students with their
+                        personal and academic information.
+                    </p>
+
+                    <span class="feature-link">
+                        Add Student →
+                    </span>
+
+                </a>
+
+
+                <!-- Manage Students -->
+
+                <a href="manage.html" class="feature-card">
+
+                    <div class="feature-icon blue">
+                        📋
+                    </div>
+
+                    <h3>
+                        Manage Records
+                    </h3>
+
+                    <p>
+                        View, edit, and delete student records
+                        whenever you need.
+                    </p>
+
+                    <span class="feature-link">
+                        Manage Students →
+                    </span>
+
+                </a>
+
+
+                <!-- View Student Details -->
+
+                <a href="viewdetail.html" class="feature-card">
+
+                    <div class="feature-icon purple">
+                        👁️
+                    </div>
+
+                    <h3>
+                        View Details
+                    </h3>
+
+                    <p>
+                        Access complete student information
+                        with a single click.
+                    </p>
+
+                    <span class="feature-link">
+                        View Students →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Student Management System
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
