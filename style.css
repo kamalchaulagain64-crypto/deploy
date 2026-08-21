@@ -1,7 +1,3 @@
-/* =========================================
-   RESET
-========================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -36,11 +32,6 @@ body {
         );
 }
 
-
-/* =========================================
-   NAVBAR
-========================================= */
-
 .navbar {
     width: 100%;
 
@@ -62,9 +53,6 @@ body {
     z-index: 100;
 }
 
-
-/* Logo */
-
 .logo {
     display: flex;
     align-items: center;
@@ -80,10 +68,6 @@ body {
 .logo span {
     letter-spacing: -0.3px;
 }
-
-
-/* Navigation */
-
 .nav-links {
     display: flex;
     align-items: center;
@@ -128,11 +112,6 @@ body {
     width: 100%;
 }
 
-
-/* =========================================
-   HERO
-========================================= */
-
 .hero {
     width: min(1180px, 90%);
 
@@ -151,17 +130,9 @@ body {
     gap: 80px;
 }
 
-
-/* =========================================
-   HERO CONTENT
-========================================= */
-
 .hero-content {
     max-width: 620px;
 }
-
-
-/* Badge */
 
 .badge {
     display: inline-flex;
@@ -206,9 +177,6 @@ body {
     color: #668457;
 }
 
-
-/* Description */
-
 .hero-content > p {
     max-width: 560px;
 
@@ -220,11 +188,6 @@ body {
 
     line-height: 1.7;
 }
-
-
-/* =========================================
-   HERO BUTTONS
-========================================= */
 
 .hero-buttons {
     display: flex;
@@ -284,9 +247,6 @@ body {
         rgba(22, 33, 14, 0.28);
 }
 
-
-/* Secondary */
-
 .btn-secondary {
     background: #ffffff;
 
@@ -304,11 +264,6 @@ body {
         0 8px 20px
         rgba(0, 0, 0, 0.08);
 }
-
-
-/* =========================================
-   STATISTICS
-========================================= */
 
 .statistics {
     display: flex;
@@ -350,11 +305,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-
-/* =========================================
-   HERO STUDENT CARD
-========================================= */
-
 .hero-card {
     padding: 25px;
 
@@ -386,11 +336,6 @@ body {
         0 30px 70px
         rgba(30, 45, 25, 0.18);
 }
-
-
-/* =========================================
-   CARD TOP
-========================================= */
 
 .card-top {
     display: flex;
@@ -438,11 +383,6 @@ body {
     font-size: 12px;
 }
 
-
-/* =========================================
-   STUDENT LIST
-========================================= */
-
 .student-list {
     display: flex;
 
@@ -450,9 +390,6 @@ body {
 
     gap: 4px;
 }
-
-
-/* Student row */
 
 .student-preview {
     display: flex;
@@ -475,11 +412,6 @@ body {
 
     transform: translateX(3px);
 }
-
-
-/* =========================================
-   AVATAR
-========================================= */
 
 .avatar {
     width: 43px;
@@ -518,11 +450,6 @@ body {
     color: #a26a27;
 }
 
-
-/* =========================================
-   STUDENT TEXT
-========================================= */
-
 .student-text {
     min-width: 0;
 
@@ -558,12 +485,6 @@ body {
 
     text-overflow: ellipsis;
 }
-
-
-/* =========================================
-   STATUS
-========================================= */
-
 .status {
     flex-shrink: 0;
 
@@ -579,12 +500,6 @@ body {
 
     font-weight: 800;
 }
-
-
-/* =========================================
-   EMPTY STUDENTS
-========================================= */
-
 .empty-students {
     padding: 30px 10px;
 
@@ -621,11 +536,6 @@ body {
     color: #16210e;
 }
 
-
-/* =========================================
-   VIEW ALL
-========================================= */
-
 .view-all {
     display: block;
 
@@ -651,11 +561,6 @@ body {
 .view-all:hover {
     color: #16210e;
 }
-
-
-/* =========================================
-   FEATURES
-========================================= */
 
 .features {
     width: min(1180px, 90%);
@@ -700,11 +605,6 @@ body {
     line-height: 1.6;
 }
 
-
-/* =========================================
-   FEATURE GRID
-========================================= */
-
 .feature-grid {
     display: grid;
 
@@ -712,11 +612,6 @@ body {
 
     gap: 20px;
 }
-
-
-/* =========================================
-   CLICKABLE FEATURE CARD
-========================================= */
 
 .feature-card {
     display: block;
@@ -728,124 +623,74 @@ body {
     border: 1px solid #e3e9df;
 
     border-radius: 20px;
-
     text-align: left;
-
     text-decoration: none;
-
     color: inherit;
-
     cursor: pointer;
-
     transition:
         transform 0.25s ease,
         background 0.25s ease,
         box-shadow 0.25s ease,
         border-color 0.25s ease;
 }
-
 .feature-card:hover {
     background: #ffffff;
-
     border-color: #d5dfd0;
-
     transform: translateY(-8px);
-
     box-shadow:
         0 18px 40px
         rgba(35, 50, 30, 0.12);
 }
-
-
-/* =========================================
-   FEATURE ICON
-========================================= */
-
 .feature-icon {
     width: 48px;
     height: 48px;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     margin-bottom: 20px;
-
     border-radius: 14px;
-
     font-size: 20px;
-
     transition:
         transform 0.25s ease;
 }
-
 .feature-card:hover .feature-icon {
     transform: scale(1.08);
 }
-
 .feature-icon.green {
     background: #e1eddb;
 }
-
 .feature-icon.blue {
     background: #dceaf5;
 }
-
 .feature-icon.purple {
     background: #e9def2;
 }
-
-
-/* =========================================
-   FEATURE TEXT
-========================================= */
-
 .feature-card h3 {
     margin-bottom: 10px;
-
     color: #26321f;
-
     font-size: 18px;
 }
-
 .feature-card p {
     color: #737b70;
-
     font-size: 14px;
-
     line-height: 1.7;
 }
 
-
-/* Feature link */
-
 .feature-link {
     display: inline-block;
-
     margin-top: 18px;
-
     color: #668457;
-
     font-size: 13px;
-
     font-weight: 700;
-
     transition:
         color 0.2s ease,
         transform 0.2s ease;
 }
-
 .feature-card:hover .feature-link {
     color: #16210e;
 
     transform: translateX(5px);
 }
-
-
-/* =========================================
-   FOOTER
-========================================= */
 
 footer {
     padding: 25px;
@@ -860,12 +705,6 @@ footer {
 
     background: rgba(255, 255, 255, 0.35);
 }
-
-
-/* =========================================
-   TABLET
-========================================= */
-
 @media (max-width: 900px) {
 
     .navbar {
@@ -926,12 +765,6 @@ footer {
         margin-top: 15px;
     }
 }
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media (max-width: 600px) {
 
     .navbar {
@@ -1035,12 +868,6 @@ footer {
         padding: 25px;
     }
 }
-
-
-/* =========================================
-   VERY SMALL DEVICES
-========================================= */
-
 @media (max-width: 380px) {
 
     .logo {

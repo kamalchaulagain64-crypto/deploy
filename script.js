@@ -1,35 +1,12 @@
-/* =========================================
-   STUDENT MANAGEMENT SYSTEM
-   SINGLE JAVASCRIPT FILE
-========================================= */
-
-
-/* =========================================
-   LOAD STUDENTS
-========================================= */
-
 let studentsArray =
     JSON.parse(localStorage.getItem("students")) || [];
-
-
-/* =========================================
-   SAVE STUDENTS
-========================================= */
-
 function saveStudents() {
     localStorage.setItem(
         "students",
         JSON.stringify(studentsArray)
     );
 }
-
-
-/* =========================================
-   UPDATE HOME PAGE STATISTICS
-========================================= */
-
 function updateStatistics() {
-
     const totalStudents =
         document.getElementById("totalStudents");
 
@@ -38,33 +15,23 @@ function updateStatistics() {
 
     const totalSemesters =
         document.getElementById("totalSemesters");
-
-
     // Total students
     if (totalStudents) {
         totalStudents.textContent =
             studentsArray.length;
     }
-
-
     // Unique faculties
     if (totalFaculties) {
-
         const faculties = new Set();
-
         studentsArray.forEach(function (student) {
-
             if (student.faculty) {
                 faculties.add(student.faculty);
             }
-
         });
 
         totalFaculties.textContent =
             faculties.size;
     }
-
-
     // Unique semesters
     if (totalSemesters) {
 
@@ -82,12 +49,6 @@ function updateStatistics() {
             semesters.size;
     }
 }
-
-
-/* =========================================
-   DISPLAY RECENT STUDENTS ON HOME PAGE
-========================================= */
-
 function displayStudentPreview() {
 
     const preview =
@@ -95,17 +56,11 @@ function displayStudentPreview() {
 
     const emptyMessage =
         document.getElementById("emptyStudents");
-
-
     // Not on home page
     if (!preview) {
         return;
     }
-
-
     preview.innerHTML = "";
-
-
     // No students
     if (studentsArray.length === 0) {
 
@@ -159,10 +114,6 @@ function displayStudentPreview() {
     });
 }
 
-
-/* =========================================
-   DISPLAY STUDENTS IN MANAGE PAGE
-========================================= */
 
 function displaystudent() {
 
@@ -236,11 +187,6 @@ function displaystudent() {
     });
 }
 
-
-/* =========================================
-   DELETE STUDENT
-========================================= */
-
 function deletestudent(index) {
 
     const student =
@@ -276,10 +222,6 @@ function deletestudent(index) {
 }
 
 
-/* =========================================
-   EDIT STUDENT
-========================================= */
-
 function editstudent(index) {
 
     if (!studentsArray[index]) {
@@ -299,20 +241,12 @@ function editstudent(index) {
 }
 
 
-/* =========================================
-   VIEW ALL STUDENTS
-========================================= */
 
 function viewstudent() {
 
     window.location.href =
         "viewdetail.html";
 }
-
-
-/* =========================================
-   ADD / UPDATE STUDENT
-========================================= */
 
 function getName(event) {
 
@@ -367,9 +301,7 @@ function getName(event) {
     };
 
 
-    /* =========================================
-       CHECK EDIT MODE
-    ========================================= */
+
 
     const storedEditIndex =
         localStorage.getItem("editIndex");
@@ -404,25 +336,14 @@ function getName(event) {
     }
 
 
-    /* =========================================
-       SAVE
-    ========================================= */
-
     saveStudents();
 
 
-    /* =========================================
-       GO TO MANAGE PAGE
-    ========================================= */
 
     window.location.href =
         "manage.html";
 }
 
-
-/* =========================================
-   PREPARE EDIT FORM
-========================================= */
 
 function prepareEditForm() {
 
@@ -517,11 +438,6 @@ function prepareEditForm() {
     }
 }
 
-
-/* =========================================
-   DISPLAY ALL STUDENTS
-========================================= */
-
 function displayAllStudents() {
 
     const studentGrid =
@@ -556,13 +472,9 @@ function displayAllStudents() {
                 </p>
 
             </div>
-
         `;
-
         return;
     }
-
-
     studentsArray.forEach(function (student, index) {
 
         const firstLetter =
@@ -687,44 +599,24 @@ function displayAllStudents() {
                             <strong>
                                 ${student.semester || "-"}
                             </strong>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </article>
-
         `;
     });
 }
-
-
-/* =========================================
-   PAGE LOAD
-========================================= */
-
 document.addEventListener(
     "DOMContentLoaded",
     function () {
-
         // Home page
         updateStatistics();
-
         displayStudentPreview();
-
-
         // Manage page
         displaystudent();
-
-
         // Add student page
         prepareEditForm();
-
-
         // Detail page
         displayAllStudents();
-
     }
 );

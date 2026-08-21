@@ -1,6 +1,3 @@
-/* ================================
-   RESET
-================================ */
 
 * {
     margin: 0;
@@ -35,28 +32,14 @@ body {
             #e9efe5
         );
 }
-
-
-/* ================================
-   PAGE CONTAINER
-================================ */
-
 .page-container {
     min-height: 100vh;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     padding: 50px 20px;
 }
-
-
-/* ================================
-   STUDENT CARD
-================================ */
-
 .student-card {
     width: 100%;
     max-width: 560px;
@@ -77,265 +60,134 @@ body {
 
     backdrop-filter: blur(12px);
 }
-
-
-/* ================================
-   HEADER
-================================ */
-
 .form-header {
     text-align: center;
 
     margin-bottom: 32px;
 }
-
-
-/* Back link */
-
 .back-link {
     display: inline-block;
-
     margin-bottom: 25px;
-
     color: #668457;
-
     font-size: 13px;
     font-weight: 700;
-
     text-decoration: none;
-
     transition: 0.2s ease;
 }
-
 .back-link:hover {
     color: #16210e;
-
     transform: translateX(-3px);
 }
-
-
-/* Icon */
 
 .form-icon {
     width: 65px;
     height: 65px;
-
     margin: 0 auto 18px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     border-radius: 18px;
-
     background: #e1eadc;
-
     font-size: 30px;
-
     box-shadow:
         0 8px 20px
         rgba(70, 100, 60, 0.1);
 }
-
-
-/* Heading */
-
 .form-header h1 {
     color: #16210e;
-
     font-size: 36px;
-
     letter-spacing: -1px;
-
     margin-bottom: 8px;
 }
-
-
-/* Description */
-
 .form-header p {
     color: #747c70;
-
     font-size: 14px;
-
     line-height: 1.6;
 }
-
-
-/* ================================
-   FORM
-================================ */
-
 .form {
     display: flex;
-
     flex-direction: column;
-
     gap: 19px;
 }
-
-
-/* ================================
-   FORM GROUP
-================================ */
-
 .form-group {
     display: flex;
-
     flex-direction: column;
-
     gap: 8px;
 }
-
-
-/* Labels */
-
 .form-group label {
     color: #35402f;
-
     font-size: 13px;
-
     font-weight: 700;
 }
-
-
-/* ================================
-   INPUTS
-================================ */
-
 .form-group input,
 .form-group select {
     width: 100%;
-
     padding: 14px 15px;
-
     border: 1px solid #dfe5dc;
-
     border-radius: 12px;
-
     outline: none;
-
     background: #fafcf9;
-
     color: #26321f;
-
     font-size: 14px;
-
     transition:
         border 0.2s ease,
         box-shadow 0.2s ease,
         background 0.2s ease;
 }
-
-
-/* Placeholder */
-
 .form-group input::placeholder {
     color: #a0a69d;
 }
-
-
-/* Focus */
-
-.form-group input:focus,
+form-group input:focus,
 .form-group select:focus {
     border-color: #668457;
-
     background: white;
-
     box-shadow:
         0 0 0 4px
         rgba(102, 132, 87, 0.12);
 }
-
-
-/* Select */
-
 .form-group select {
     cursor: pointer;
 }
-
-
-/* ================================
-   BUTTONS
-================================ */
-
 .form-actions {
     display: flex;
-
     gap: 12px;
-
     margin-top: 8px;
 }
-
-
-/* Common button */
-
 .btn {
     flex: 1;
-
     padding: 14px 20px;
-
     border: none;
-
     border-radius: 12px;
-
     font-size: 14px;
-
     font-weight: 700;
-
     cursor: pointer;
-
     transition:
         background 0.25s ease,
         transform 0.25s ease,
         box-shadow 0.25s ease;
 }
-
-
-/* Primary */
-
 .btn-primary {
     background: #16210e;
-
     color: white;
-
     box-shadow:
         0 8px 20px
         rgba(22, 33, 14, 0.18);
 }
-
 .btn-primary:hover {
     background: #26381a;
-
     transform: translateY(-2px);
-
     box-shadow:
         0 12px 25px
         rgba(22, 33, 14, 0.25);
 }
-
-
-/* Secondary */
-
 .btn-secondary {
     background: #edf1eb;
-
     color: #465141;
 }
-
 .btn-secondary:hover {
     background: #dfe7db;
-
     transform: translateY(-2px);
 }
-
-
-/* ================================
-   VALIDATION
-================================ */
-
 .form-group input:invalid:not(:placeholder-shown) {
     border-color: #d36b62;
 }
@@ -343,12 +195,6 @@ body {
 .form-group input:valid {
     border-color: #b9cbb2;
 }
-
-
-/* ================================
-   MOBILE
-================================ */
-
 @media (max-width: 600px) {
 
     .page-container {
